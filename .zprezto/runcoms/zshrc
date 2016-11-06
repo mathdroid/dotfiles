@@ -1,0 +1,39 @@
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# Customize to your needs...
+
+unset SSH_ASKPASS
+
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+eval $(thefuck --alias)
+
+. /home/odi/.config/z.sh
+
+alias python='python2'
+alias vtop='vtop --theme dark'
+alias odi@m='ssh odi@103.253.147.148'
+alias odi@s='ssh odi@128.199.112.36'
+alias adb="/opt/android-sdk/platform-tools/adb"
+
+function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
+
+export GOPATH=~/go
+export ANDROID_HOME=/opt/android-sdk
+export NVM_DIR="/home/odi/.nvm"
+export VISUAL="nano"
+export PATH="$PATH:/usr/local/sbin:/usr/local/bin:/usr/bin:/opt/android-sdk/platform-tools:/opt/android-sdk/tools:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
+export PATH="$PATH:$HOME/.node/bin"
+export PATH="$PATH:$GOPATH/bin"
+
+screenfetch
+alias config='/usr/bin/git --git-dir=/home/odi/.dotfiles/ --work-tree=/home/odi'
